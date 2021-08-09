@@ -9,7 +9,7 @@ EXEC sp_addlinkedsrvlogin @rmtsrvname = 'server2',
    @useself = 'FALSE',
    @locallogin = 'sa',
    @rmtuser = 'sa',
-   @rmtpassword = 'joaocosta'
+   @rmtpassword = '12345'
 
 USE MASTER 
 GO
@@ -82,7 +82,7 @@ CREATE TABLE Preferencia_Restaurante
 GO
 
 -- Criar views ************** 
--- Tabla Prato_do_Dia est· distribuÌda pelos dois servers
+-- Tabla Prato_do_Dia est√° distribu√≠da pelos dois servers
 CREATE View Prato_do_Dia
 AS 
 SELECT * FROM Prato_do_DiaAM
@@ -98,12 +98,12 @@ SELECT * FROM UtilizadorPar
 UNION ALL
 SELECT * FROM [server2].[TABD_TE2].[dbo].UtilizadorImpar
 GO
--- Tabela Bloquear_Utilizadores est· sÛ no server2
+-- Tabela Bloquear_Utilizadores est√° s√≥ no server2
 CREATE View Bloquear_Utilizadores
 AS 
 SELECT * FROM [server2].[TABD_TE2].[dbo].Bloquear_Utilizadores
 GO
--- Tabela Administrador est· sÛ no server2
+-- Tabela Administrador est√° s√≥ no server2
 CREATE View Administrador
 AS 
 SELECT * FROM [server2].[TABD_TE2].[dbo].Administrador
@@ -536,8 +536,4 @@ GO
 GRANT EXECUTE ON CriarAdmin TO Administrador_user
 GRANT EXECUTE ON Bloquear_Utilizador to Administrador_user 
 GO
--- Trabalho Realizado Por:
--- Bruno Fernandes al63585 
--- Diogo Fidalgo al65631  
--- Francisco Rodrigues al64063 
--- Jo„o Costa al59259 
+
